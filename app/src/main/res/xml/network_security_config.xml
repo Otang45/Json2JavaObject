@@ -1,0 +1,6 @@
+<!-- Android 9.0 https请求适配 -->
+<network-security-config>
+
+    <base-config cleartextTrafficPermitted="true" />
+
+</network-security-config>
