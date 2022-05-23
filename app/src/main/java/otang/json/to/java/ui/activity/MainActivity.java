@@ -615,6 +615,7 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
 
 	private void setupWindow() {
 		new WindowPreference(this).applyEdgeToEdgePreference(getWindow(), getColor(R.color.colorSurface));
+		getWindow().getDecorView().setBackgroundColor(getColor(R.color.colorSurface));
 		AppUtils.addSystemWindowInsetToPadding(binding.abl, false, true, false, false);
 		AppUtils.addSystemWindowInsetToPadding(binding.getRoot(), false, false, false, true);
 	}
