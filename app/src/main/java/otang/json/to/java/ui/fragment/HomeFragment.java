@@ -110,14 +110,26 @@ public class HomeFragment extends Fragment implements Toolbar.OnMenuItemClickLis
 
 	private void onFromNetworkClick() {
 		DialogViewBinding dialogViewBinding = DialogViewBinding.inflate(getLayoutInflater());
-		String input = dialogViewBinding.tiet.getText().toString();
-		final DialogPositiveButtonClickListener l = new DialogPositiveButtonClickListener(input);
 		final AlertDialog dialog = new AlertDialog.Builder(getActivity()).setTitle(mainViewBinding.bFromUrl.getText())
 				.setView(dialogViewBinding.getRoot()).setPositiveButton(android.R.string.ok, null)
 				.setNegativeButton(android.R.string.cancel, null).setNeutralButton(R.string.paste, null).create();
 		dialog.show();
 		dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener((v) -> {
-			l.onClick(dialog, DialogInterface.BUTTON_POSITIVE);
+			//l.onClick(dialog, DialogInterface.BUTTON_POSITIVE);
+			requestNetwork.startRequestNetwork(RequestNetworkController.GET,
+					dialogViewBinding.tiet.getText().toString(), null, new RequestNetwork.RequestListener() {
+						@Override
+						public void onResponse(String tag, String response, HashMap<String, Object> responseHeaders) {
+							mainViewBinding.tietJson.setText(response);
+							dialog.dismiss();
+						}
+
+						@Override
+						public void onErrorResponse(String tag, String message) {
+							ToastUtils.showShort(message);
+							mainViewBinding.tietJson.setText(message);
+						}
+					});
 		});
 		dialog.getButton(DialogInterface.BUTTON_NEUTRAL).setOnClickListener((view) -> {
 			dialogViewBinding.tiet.setText(ClipboardUtils.getText());
@@ -221,33 +233,5 @@ public class HomeFragment extends Fragment implements Toolbar.OnMenuItemClickLis
 				.setTitle(com.blankj.utilcode.util.AppUtils.getAppName()).setMessage(R.string.app_introduction)
 				.setPositiveButton(android.R.string.ok, null).create();
 		dialog.show();
-	}
-
-	private class DialogPositiveButtonClickListener implements DialogInterface.OnClickListener {
-
-		private String input;
-
-		public DialogPositiveButtonClickListener(String input) {
-			this.input = input;
-		}
-
-		@Override
-		public void onClick(final DialogInterface dia, int with) {
-			final AlertDialog dialog = (AlertDialog) dia;
-			requestNetwork.startRequestNetwork(RequestNetworkController.GET, input, null,
-					new RequestNetwork.RequestListener() {
-						@Override
-						public void onResponse(String tag, String response, HashMap<String, Object> responseHeaders) {
-							mainViewBinding.tietJson.setText(response);
-							dialog.dismiss();
-						}
-
-						@Override
-						public void onErrorResponse(String tag, String message) {
-							ToastUtils.showShort(message);
-							mainViewBinding.tietJson.setText(message);
-						}
-					});
-		}
 	}
 }

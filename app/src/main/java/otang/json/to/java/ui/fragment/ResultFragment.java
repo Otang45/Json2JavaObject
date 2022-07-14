@@ -1,5 +1,6 @@
 package otang.json.to.java.ui.fragment;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.blankj.utilcode.util.ClipboardUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.google.android.material.textfield.TextInputEditText;
 import java.io.IOException;
 import java.lang.reflect.Modifier;
 import org.json.JSONException;
@@ -156,10 +158,10 @@ public class ResultFragment extends Fragment {
 		}
 		showOutputDialog(getString(R.string.btn_out_whole), new File(outDir, String.format("%s.java", clsName)),
 				(dia, with) -> {
-					DialogViewBinding dialogViewBinding = DialogViewBinding.inflate(getLayoutInflater());
-					File outFile = new File(dialogViewBinding.tiet.getText().toString());
+					final TextInputEditText tiet = ((Dialog) dia).findViewById(R.id.tiet);
+					File outFile = new File(tiet.getText().toString());
 					if (outFile.isDirectory()) {
-						dialogViewBinding.tiet.setError(getString(R.string.message_same_foldername_exists));
+						tiet.setError(getString(R.string.message_same_foldername_exists));
 						return;
 					}
 					try {
@@ -183,10 +185,10 @@ public class ResultFragment extends Fragment {
 		}
 		showOutputDialog(getString(R.string.btn_out_zip), new File(outDir, String.format("%s.zip", clsName)),
 				(dia, with) -> {
-					DialogViewBinding dialogViewBinding = DialogViewBinding.inflate(getLayoutInflater());
-					File outFile = new File(dialogViewBinding.tiet.getText().toString());
+					final TextInputEditText tiet = ((Dialog) dia).findViewById(R.id.tiet);
+					File outFile = new File(tiet.getText().toString());
 					if (outFile.isDirectory()) {
-						dialogViewBinding.tiet.setError(getString(R.string.message_same_foldername_exists));
+						tiet.setError(getString(R.string.message_same_foldername_exists));
 						return;
 					}
 					try {
@@ -210,10 +212,10 @@ public class ResultFragment extends Fragment {
 		}
 		showOutputDialog(getString(R.string.btn_out_splist), new File(outDir, String.format("%s", clsName)),
 				(dia, with) -> {
-					DialogViewBinding dialogViewBinding = DialogViewBinding.inflate(getLayoutInflater());
-					File outFile = new File(dialogViewBinding.tiet.getText().toString());
+					final TextInputEditText tiet = ((Dialog) dia).findViewById(R.id.tiet);
+					File outFile = new File(tiet.getText().toString());
 					if (outFile.isDirectory()) {
-						dialogViewBinding.tiet.setError(getString(R.string.message_same_foldername_exists));
+						tiet.setError(getString(R.string.message_same_foldername_exists));
 						return;
 					}
 					try {

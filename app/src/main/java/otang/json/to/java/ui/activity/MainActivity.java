@@ -96,16 +96,11 @@ public class MainActivity extends AppCompatActivity {
 		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 		switch (requestCode) {
 		case CODE_REQUEST_WRITE_STORAGE_PERMISSION:
-			if (grantResults.length > 0) {
-				boolean READ_EXTERNAL_STORAGE = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-				boolean WRITE_EXTERNAL_STORAGE = grantResults[1] == PackageManager.PERMISSION_GRANTED;
-				if (READ_EXTERNAL_STORAGE && WRITE_EXTERNAL_STORAGE) {
-					// perform action when allow permission success
-				} else {
-					ToastUtils.showShort(R.string.message_not_write_storage_permission);
-				}
+			if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+				//gramdted
+			} else {
+				ToastUtils.showShort(R.string.message_not_write_storage_permission);
 			}
-			break;
 		}
 	}
 
