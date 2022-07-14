@@ -1,0 +1,7 @@
+<resources>
+
+    <item name="homeFragment" type="id"/>
+    <item name="configFragment" type="id"/>
+    <item name="resultFragment" type="id"/>
+
+</resources>

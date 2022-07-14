@@ -70,7 +70,7 @@
     "scope": "compile",
     "versionName": "2.9.0"
   },
-	{
+  {
     "artifactId": "okhttp",
     "excludes": [],
     "groupId": "com.squareup.okhttp3",
@@ -83,5 +83,19 @@
     "groupId": "org.xutils",
     "scope": "compile",
     "versionName": "3.9.0"
+  },
+  {
+    "artifactId": "navigation-fragment",
+    "excludes": [],
+    "groupId": "androidx.navigation",
+    "scope": "compile",
+    "versionName": "2.5.0"
+  },
+  {
+    "artifactId": "navigation-ui",
+    "excludes": [],
+    "groupId": "androidx.navigation",
+    "scope": "compile",
+    "versionName": "2.5.0"
   }
 ]

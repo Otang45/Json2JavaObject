@@ -1,0 +1,32 @@
+<navigation
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_graph"
+	app:startDestination="@id/homeFragment">
+	
+	<fragment
+		android:id="@+id/homeFragment"
+		android:name="otang.json.to.java.ui.fragment.HomeFragment"
+		android:label="@string/tab_basic"
+		tools:layout="@layout/main_view">
+			
+	</fragment>
+
+	<fragment
+		android:id="@+id/configFragment"
+		android:name="otang.json.to.java.ui.fragment.ConfigFragment"
+		android:label="@string/tab_config"
+		tools:layout="@layout/config_view" >
+			
+	</fragment>
+
+	<fragment
+		android:id="@+id/resultFragment"
+		android:name="otang.json.to.java.ui.fragment.ResultFragment"
+		android:label="@string/tab_output"
+		tools:layout="@layout/result_view" >
+			
+	</fragment>
+
+</navigation>

@@ -81,4 +81,17 @@
     <string name="time_unit_d">d</string>
     <string name="app_introduction">This tool can quickly convert Json strings into Java entity classes, which is easy to use other Json libraries for deserialization, etc.</string>
 
+    <string-array name="more_tools">
+        <item>Escape</item>
+        <item>Unescape</item>
+        <item>Chinese To Unicode</item>
+        <item>Unicode To Chinese</item>
+    </string-array>
+    <string-array name="more_tools_key">
+        <item>escape</item>
+        <item>unescape</item>
+        <item>strTounicode</item>
+        <item>unicodeToStr</item>
+    </string-array>
+
 </resources>
