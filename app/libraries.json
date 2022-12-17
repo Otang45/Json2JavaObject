@@ -97,5 +97,12 @@
     "groupId": "androidx.navigation",
     "scope": "compile",
     "versionName": "2.5.0"
+  },
+  {
+    "artifactId": "kotlinx-coroutines-core",
+    "excludes": [],
+    "groupId": "org.jetbrains.kotlinx",
+    "scope": "compile",
+    "versionName": "1.6.4"
   }
 ]
